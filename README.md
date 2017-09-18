@@ -9,7 +9,7 @@ My pipeline consisted of 5 steps. First, I extracted a region of interest from t
 
 Next I extracted segments of the image that matched the color of road lines that we were concerned with. These colors being yellow and white. By using a thresholding function I selected lower and upper bounds in RGB space that white and yellow would lie in. After experimenting with HSV and HLS color spaces I found thresholding on the HLS color space to be the most effective. 
 
-As a result of thresholding my pipeline outputs two binary images, one of the thresholded white values, the other with the thresholded yellow values. By using the bitwise OR operater these two images are fused together into one binary image. (Show images of this...)
+As a result of thresholding my pipeline outputs two binary images, one of the thresholded white values, the other with the thresholded yellow values. By using the bitwise OR operater these two images are fused together into one binary image.
 
 The binary image is then run through a gaussian filter to smooth the image. This smoothed image can then be run through the canny edge detector which...
 
