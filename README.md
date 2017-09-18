@@ -25,7 +25,7 @@ Talk about testing at night time..
 Talk about testing with a different camera.. evidence, roi..
 
 
-There are a lot of assumptions mentioned above
+After further...
 
 Reliance on road markings within a particular region
 
