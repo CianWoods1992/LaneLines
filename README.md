@@ -21,29 +21,23 @@ In order to draw a single line on the left and right lanes, I iterate through ea
 
 ### 2. Identify potential shortcomings with your current pipeline
 
-Talk about testing at night time..
-Talk about testing with a different camera.. evidence, roi..
-
-
-After further...
-
-Reliance on road markings within a particular region
+Further testing was run by mounting a camera on my personal vehicle and running the pipeline live by capturing the video steam with OpenCV VideoCapture functions. However, this showed many flaws in the current implementation. The first of these flaws was the region of interest that was selected for the sample images and video did not match the region of interest required for the new camera / vehicle combination.
 
 <img src="report_images/roi_err.jpg" width="480" alt="Combined Image" />
-<br>
+
+This was corrected to allow the new camera / vehicle combination to include the lane lines within its region of interest.
+
 <img src="report_images/roi_suc.jpg" width="480" alt="Combined Image" />
-<br>
+
+The pipeline was then tested at night, with the current canny and hough parameters the resulting detected lines included alot of noise due to artificial lights reflecting off surfaces.
+
 <img src="report_images/bad_night_lines.jpg" width="480" alt="Combined Image" />
-<br>
+
+The canny and hough parameters were adjusted to account for this, however I could not clean up the images completely and lines were still skewed.
+
 <img src="report_images/better_night_lines.jpg" width="480" alt="Combined Image" />
 
-Assuming certain types of lighting conditions due to fixed RGB thresholds for color masking
-
-<img src="report_images/bad_night_lines.jpg" width="480" alt="Combined Image" />
-
-Lanes are lines without curves
-
-
+Lastly, the pipeline only maps lane lines to straight lines and not curved lines.
 
 ### 3. Suggest possible improvements to your pipeline
 
