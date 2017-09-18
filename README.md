@@ -33,6 +33,8 @@ There are a lot of assumptions mentioned above
 
 Reliance on road markings within a particular region
 
+<img src="report_images/roi_err.jpg" width="480" alt="Combined Image" />
+
 Assuming certain types of lighting conditions due to fixed RGB thresholds for color masking
 
 Lanes must have high contrast with the road so dirt roads would be a problem
