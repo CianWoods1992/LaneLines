@@ -11,11 +11,11 @@ Next I extracted segments of the image that matched the color of road lines that
 
 As a result of thresholding my pipeline outputs two binary images, one of the thresholded white values, the other with the thresholded yellow values. By using the bitwise OR operater these two images are fused together into one binary image.
 
-The binary image is then run through a gaussian filter to smooth the image. This smoothed image can then be run through the canny edge detector which...
+The binary image is then run through a gaussian filter to smooth the image. This smoothed image can then be run through the canny edge detector.
 
-This is then run through Hough...
+Lastly the detected edges are run through hough lines function which returns the start and end point cartesian coordinates of each of the detected lines.
 
-In order to draw a single line on the left and right lanes, I iterate through each of the lines returned by the HoughLines function. Firstly I check the slope of the line, if the slope is positive the line is sloping from left to right and hence can be classed as a line on left lane, likewise if the line has a negative slope it can be classed as a line on the right lane. Horizontal lines are ignored in this algorithm. Left lane lines are pooled together as are right lane lines. Using the numpy polyfit funciton I then get the function of the best fitting line to the lines that were input to the polyfit function (show function of line here...). Lastly I take two points Y points on the line and input Y into the equation of the line to get its corresponding X coordinate. These X and Y coordinates are what I draw in the resulting image. 
+In order to draw a single line on the left and right lanes, I iterate through each of the lines returned by the HoughLines function. Firstly I check the slope of the line, if the slope is positive the line is sloping from left to right and hence can be classed as a line on left lane, likewise if the line has a negative slope it can be classed as a line on the right lane. Horizontal lines are ignored in this algorithm. Left lane lines are pooled together as are right lane lines. Using the numpy polyfit funciton I then get the function of the best fitting line to the lines that were input to the polyfit function. Lastly I take two points Y points on the line and input Y into the equation of the line to get its corresponding X coordinate. These X and Y coordinates are what I draw in the resulting image. 
 
 
 
@@ -33,7 +33,7 @@ The pipeline was then tested at night, with the current canny and hough paramete
 
 <img src="report_images/bad_night_lines.jpg" width="480" alt="Combined Image" />
 
-The canny and hough parameters were adjusted to account for this, however I could not clean up the images completely and lines were still skewed.
+The canny and hough parameters were adjusted to account for this, however since my vehicles dipped headlights were on the field of view of the camera was limited, this resulted in extrapolation of dashed lines to be limited to one line with the drawn lines being slightly skewed.
 
 <img src="report_images/better_night_lines.jpg" width="480" alt="Combined Image" />
 
