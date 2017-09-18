@@ -18,16 +18,12 @@ This is then run through Hough...
 In order to draw a single line on the left and right lanes, I iterate through each of the lines returned by the HoughLines function. Firstly I check the slope of the line, if the slope is positive the line is sloping from left to right and hence can be classed as a line on left lane, likewise if the line has a negative slope it can be classed as a line on the right lane. Horizontal lines are ignored in this algorithm. Left lane lines are pooled together as are right lane lines. Using the numpy polyfit funciton I then get the function of the best fitting line to the lines that were input to the polyfit function (show function of line here...). Lastly I take two points Y points on the line and input Y into the equation of the line to get its corresponding X coordinate. These X and Y coordinates are what I draw in the resulting image. 
 
 
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
-
-![alt text][image1]
-
 
 ### 2. Identify potential shortcomings with your current pipeline
 
 Talk about testing at night time..
 Talk about testing with a different camera.. evidence, roi..
-Curves, and lane crossing
+
 
 There are a lot of assumptions mentioned above
 
@@ -36,10 +32,14 @@ Reliance on road markings within a particular region
 <img src="report_images/roi_err.jpg" width="480" alt="Combined Image" />
 <br>
 <img src="report_images/roi_suc.jpg" width="480" alt="Combined Image" />
+<br>
+<img src="report_images/bad_night_lines.jpg" width="480" alt="Combined Image" />
+<br>
+<img src="report_images/better_night_lines.jpg" width="480" alt="Combined Image" />
 
 Assuming certain types of lighting conditions due to fixed RGB thresholds for color masking
 
-Lanes must have high contrast with the road so dirt roads would be a problem
+<img src="report_images/bad_night_lines.jpg" width="480" alt="Combined Image" />
 
 Lanes are lines without curves
 
@@ -47,8 +47,8 @@ Lanes are lines without curves
 
 ### 3. Suggest possible improvements to your pipeline
 
-Adaptive region boundaries though camera profiles for different cameras
+Different cameras and vehicles could have different profiles that are loaded at pipeline initialisation time, this would allow the same pipeline to run with the same behaviour across a variety of condiitons by taking varying parameters from the vehicle/camera profiles
 
-Adaptive lighting thresholds... investigate
+Thresholds could be adapted to lighting conditions to make the pipeline suitable for all lighting conditions at any time of the day in multiple weather conditions
 
-Fit lanes to a polynomial instead of a linear function... curves
+Lines could be fittes to a polynomial function rather than a linear function allowing the detected lines to be mapped to curves and straight lines rather than being limited to straight lines
